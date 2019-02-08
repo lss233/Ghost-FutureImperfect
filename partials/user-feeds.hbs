@@ -1,0 +1,152 @@
+<section>
+	<ul id="feeds" class="posts">
+		<li style="display: none" class="post">
+			<article>
+				<header>
+					<a href="" target="_blank"><p></p></a>
+					<time class="published" datetime="2015-10-10"></time>
+				</header>
+				<a href="" class="image" target="_blank"><img /></a>
+			</article>
+		</li>
+		<li class="post ph-item">
+			<article>
+				<header>
+					<div class="ph-row">
+						<div class="ph-col-10"></div>
+					</div>
+					<div class="ph-row">
+						<div class="ph-col-8"></div>
+					</div>
+					
+					<div class="ph-row">
+						<div class="ph-col-4"></div>
+					</div>
+				</header>
+				<a href="" class="image" target="_blank"><div class="ph-avatar avatar"></div></a>
+			</article>
+		</li>
+		<li class="post ph-item">
+			<article>
+				<header>
+					<div class="ph-row">
+						<div class="ph-col-10"></div>
+					</div>
+					<div class="ph-row">
+						<div class="ph-col-8"></div>
+					</div>
+					
+					<div class="ph-row">
+						<div class="ph-col-4"></div>
+					</div>
+				</header>
+				<a href="" class="image" target="_blank"><div class="ph-avatar avatar"></div></a>
+			</article>
+		</li>
+		<li class="post ph-item">
+			<article>
+				<header>
+					<div class="ph-row">
+						<div class="ph-col-10"></div>
+					</div>
+					<div class="ph-row">
+						<div class="ph-col-8"></div>
+					</div>
+					
+					<div class="ph-row">
+						<div class="ph-col-4"></div>
+					</div>
+				</header>
+				<a href="" class="image" target="_blank"><div class="ph-avatar avatar"></div></a>
+			</article>
+		</li>
+		<li class="post ph-item">
+			<article>
+				<header>
+					<div class="ph-row">
+						<div class="ph-col-10"></div>
+					</div>
+					<div class="ph-row">
+						<div class="ph-col-8"></div>
+					</div>
+					
+					<div class="ph-row">
+						<div class="ph-col-4"></div>
+					</div>
+				</header>
+				<a href="" class="image" target="_blank"><div class="ph-avatar avatar"></div></a>
+			</article>
+		</li>
+		<li class="post ph-item">
+			<article>
+				<header>
+					<div class="ph-row">
+						<div class="ph-col-10"></div>
+					</div>
+					<div class="ph-row">
+						<div class="ph-col-8"></div>
+					</div>
+					
+					<div class="ph-row">
+						<div class="ph-col-4"></div>
+					</div>
+				</header>
+				<a href="" class="image" target="_blank"><div class="ph-avatar avatar"></div></a>
+			</article>
+		</li>
+		<li class="post ph-item">
+			<article>
+				<header>
+					<div class="ph-row">
+						<div class="ph-col-10"></div>
+					</div>
+					<div class="ph-row">
+						<div class="ph-col-8"></div>
+					</div>
+					
+					<div class="ph-row">
+						<div class="ph-col-4"></div>
+					</div>
+				</header>
+				<a href="" class="image" target="_blank"><div class="ph-avatar avatar"></div></a>
+			</article>
+		</li>
+		
+	</ul>
+</section>
+{{#contentFor "scripts"}}
+<script>
+	$(document).ready(function () {
+		const feedSource = {
+			server: 'https://lss233.com/feeds.php',
+			twitter: 'lss233_',
+			instagram: 'lss233_',
+			github: 'lss233',
+			ncm: '317570664'
+		}
+		$.get(feedSource.server, feedSource)
+		.done(function(rss) {
+			var $feeds = $('#feeds')
+			var $example = $('.post:nth-child(1)', $feeds)
+			var imgBaseUrl = "{{ asset 'images/' }}"
+			imgBaseUrl = imgBaseUrl.substring(0, imgBaseUrl.indexOf('?'))
+			var show = function($post) {
+				setTimeout((function() {
+					$post.appendTo('#feeds').show('slow');
+				}), i*100);
+			}
+			$('.post.ph-item').remove()
+			for(var i = 0; i < rss.length; i++){
+				var post = rss[i];
+				var $post = $example.clone();
+				$('a', $post).attr('href', post.link)
+				$('a > img', $post).attr('src', imgBaseUrl + post.source + ".png")
+				$('time', $post).attr('datetime', post.date)
+				$('time', $post).text((new Date(post.date)).toLocaleDateString('en'))
+				$('p', $post).text(post.title)
+				show($post)
+			}
+		})
+	})
+</script>
+{{/contentFor}}

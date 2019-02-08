@@ -1,0 +1,29 @@
+ul#feeds {
+    .post {
+        article {
+            margin: 10px 10px 20px 10px;
+            header {
+                width: 0;
+                overflow: hidden;
+            }
+            a {
+                p {
+                    text-transform: capitalize;
+                    padding-top: 5px;
+                }
+            }
+            .image {
+                img {
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 100%;
+                }
+            }
+        }
+    }
+    .ph-item {
+        article {
+            margin-top: 20px;
+        }
+    }
+}

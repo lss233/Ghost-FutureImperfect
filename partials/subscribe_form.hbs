@@ -1,0 +1,7 @@
+<form method="post" action="{{action}}" style="text-align: center">
+	{{#if error}}
+	    <p class="main-error">{{ error.message }}</p>
+	{{/if}}
+	{{input_email class=input_class placeholder=placeholder value=email autofocus=autofocus}}
+	<button class="{{button_class}}" style="margin-top: 20px" type="submit">Subscribe</button>
+</form>

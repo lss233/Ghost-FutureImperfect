@@ -1,0 +1,11 @@
+<nav class="links">
+    <ul>
+            {{#foreach navigation}}
+            <li>
+                <a href="{{url absolute="true"}}">
+                    <h3>{{label}}</h3>
+                </a>
+            </li>
+            {{/foreach}}
+    </ul>
+</nav>

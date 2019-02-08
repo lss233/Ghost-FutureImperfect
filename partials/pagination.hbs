@@ -1,0 +1,12 @@
+    <div class="row">
+        <div class="col-4">
+            <a href="{{page_url prev}}" class="button large {{#if prev}}{{else}}disabled{{/if}} fit">&larr; {{t "Previous Posts"}}</a>
+        </div>
+        <div class="col-4" style="text-align: center; margin-top: 10px">
+            <span>{{t "Page {page} of {pages}" page=page pages=pages}}</span>
+        </div>
+        <div class="col-4">
+            <a href="{{page_url next}}" class="button large {{#if next}}{{else}}disabled{{/if}} fit">{{t "Older Posts"}} &rarr;</a>
+        </div>
+
+    </div>

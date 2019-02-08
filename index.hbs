@@ -1,0 +1,36 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{> "site-nav"}}
+
+<div id="main">
+    {{#foreach posts}}
+
+        {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+        {{>"post-card" }}
+
+    {{/foreach}}
+
+    <div class="post">
+        {{ pagination }}
+    </div>
+</div>
+
+<!-- Sidebar -->
+<section id="sidebar">
+
+    <!-- Intro -->
+        <section id="intro">
+            <a href="#" class="logo">
+                {{#if @blog.logo}}
+                    <img src="{{@blog.logo}}" alt="{{ @blog.title }}" />
+                {{/if}}
+                </a>
+            <header>
+                <h2>{{ @blog.title }}</h2>
+                <p>{{ @blog.description }}</p>
+            </header>
+        </section>
+
+        {{> "user-feeds" }}
+</section>

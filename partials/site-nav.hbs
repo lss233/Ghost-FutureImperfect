@@ -1,0 +1,43 @@
+<!-- Header -->
+<header id="header">
+    <h1><a href="{{ @blog.url }}">{{@blog.title}}</a></h1>
+    {{#if @blog.navigation}}
+        {{ navigation }}
+    {{/if}}
+    <nav class="main">
+        <ul>
+            <!--
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="#">
+                    <input type="text" name="query" placeholder="Search" />
+                </form>
+            </li>
+            -->
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<!-- Menu -->
+<section id="menu">
+    <!-- Links -->
+        <section>
+            {{#if @blog.navigation}}
+                {{ navigation }}
+            {{/if}}
+        </section>
+
+    <!-- Actions -->
+        <section>
+            <ul class="actions stacked">
+                <li><a href="#subscribe"  class="button large fit subscribe-button">Subscribe</a></li>
+                <li><a href="https://feedly.com/i/subscription/feed/{{@blog.url}}/rss/" class="button large fit rss-button" target="_blank">RSS</a></li>
+            </ul>
+        </section>
+
+</section>
+        
+
+        

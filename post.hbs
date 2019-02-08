@@ -1,0 +1,182 @@
+{{!< default}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{> "site-nav" }}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+<!-- Main -->
+<div id="main">
+    <!-- Post -->
+        <article class="post">
+            <header>
+                <div class="title">
+                    <h2><a href="#" class="post-full-title">{{ title }}</a></h2>
+                    <p>{{ meta_description }}</p>
+                </div>
+                <div class="meta">
+                    {{#foreach authors}}
+                            {{#if profile_image}}
+                                <a href="{{url}}" class="author static-avatar"><img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" /></a>
+                            {{else}}
+                                <a href="{{url}}" class="author static-avatar author-profile-image">{{> "icons/avatar"}}</a>
+                            {{/if}}
+                        </li>
+                    {{/foreach}}
+                    <time class="published" datetime="{{date published_at format="YYYY-MM-DD"}}">{{date published_at format="MMMM DD, YYYY"}}</time>
+                    <span class="reading-time">{{reading_time}}</span>
+                </div>
+            </header>
+                {{#if feature_image}}
+                    <span class="image featured"><img src="{{feature_image}}" alt="{{title}}" /></span>
+                {{/if}}
+                <div class="post-full-content">
+                    {{ content }}
+                </div>
+            <footer>
+                <ul class="stats">
+                    {{#if primary_tag}}
+                        {{#primary_tag}}
+                            <li><a href="{{url}}">{{name}}</a></li>
+                        {{/primary_tag}}
+                    {{/if}}
+                    <!-- Disqus comment count -->
+                    <li><a href="{{ url }}#disqus_thread" class="icon fa-comment" data-disqus-identifier="{{ comment_id }}">128</a></li>
+                </ul>
+            </footer>
+        </article>
+
+        <article class="post">
+            <div id="disqus_thread"></div>
+            <script>
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+                */
+                /*
+                var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                */
+                (function() {  // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    
+                    s.src = 'https://lss233-blog.disqus.com/embed.js';
+                    
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        </article>
+
+</div>
+{{/post}}
+<!-- Sidebar -->
+<section id="sidebar">
+
+    <!-- Intro -->
+        <section id="intro">
+            <a href="#" class="logo">
+                {{#if @blog.logo}}
+                    <img src="{{@blog.logo}}" alt="{{ @blog.title }}" />
+                {{/if}}
+                </a>
+            <header>
+                <h2>{{ @blog.title }}</h2>
+                <p>{{ @blog.description }}</p>
+            </header>
+        </section>
+
+        <section id="toc">
+
+        </section>
+</section>
+
+{{> floating-header }}
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+<script src="{{ asset "js/toc.min.js" }}"></script>
+<script>
+$(document).ready(function () {
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('#header');
+    var title = document.querySelector('.post-full-title');
+    var toc = document.querySelector('#toc');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    $(toc).initTOC({
+        selector: 'h1, h2, h3, h4, h5, h6',
+        scope: '.post-full-content',
+        overwrite: false,
+        prefix: 'toc'
+    });
+    
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateToc);
+            requestAnimationFrame(updateHeader);
+        }
+        ticking = true;
+    }
+    function updateToc() {
+        var trigger = toc.getBoundingClientRect().top;
+        var triggerOffset = 0;
+        // show/hide floating toc
+        if (lastScrollY >= trigger + triggerOffset) {
+            toc.classList.add('sticky');
+        }
+        if(lastScrollY <= $('#intro').position().top + $('#intro').height()){
+            toc.classList.remove('sticky');
+        }
+        
+    }
+    function updateHeader() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    updateHeader();
+    updateToc();
+
+});
+</script>
+{{/contentFor}}

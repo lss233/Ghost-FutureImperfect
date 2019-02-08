@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Base Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{!-- Styles'n'Scripts --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/main.css"}}" />
+
+    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+    {{ghost_head}}
+
+</head>
+<body class="{{body_class}} is-preload" {{#if @blog.cover_image}}" style="background-image: url({{@blog.cover_image}})"{{/if}}>
+
+    <div id="wrapper">
+
+        {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+        {{{body}}}
+
+    </div>
+
+    {{!-- The big email subscribe modal content --}}
+    {{#if @labs.subscribers}}
+    <section style="padding: 3em">
+        <div id="subscribe" class="subscribe-overlay post">
+            <a class="subscribe-overlay-close" href="#"></a>
+            <div class="subscribe-overlay-content">
+                <h1 class="subscribe-overlay-title">Subscribe to {{@blog.title}}</h1>
+                <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
+                {{subscribe_form placeholder="youremail@example.com"}}
+            </div>
+        </div>
+    </section>
+    {{/if}}
+    <section id="footer">
+        <ul class="icons">
+            {{#if @site.twitter}}
+            <li><a href="{{@site.twitter}}" class="fa-twitter"><span class="label">Twitter</span></a></li>
+            {{/if}}
+            {{#if @site.facebook}}
+            <li><a href="{{@site.facebook}}" class="fa-facebook"><span class="label">Facebook</span></a></li>
+            {{/if}}
+            <li><a href="https://instagram.com/lss233_" class="fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="https://github.com/lss233" class="fa-github"><span class="label">Github</span></a></li>
+            <li><a href="{{@site.url}}/rss/" class="fa-rss"><span class="label">RSS</span></a></li>
+        </ul>
+        <p class="copyright">&copy; {{@site.title}}. Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a> & <a href="https://lss233.com" target="_blank">Lss233</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
+    </section>
+    {{#if pagination.pages}}
+    <script>
+        // maxPages is a global variable that is needed to determine
+        // if we need to load more pages for the infinitescroll, or if
+        // we reached the last page already.
+        var maxPages = parseInt('{{pagination.pages}}');
+    </script>
+    {{/if}}
+    <script src="{{asset "js/jquery.min.js"}}"></script>
+    <script src="{{asset "js/jquery.fitvids.js"}}"></script>
+    <script src="{{asset "js/browser.min.js"}}"></script>
+    <script src="{{asset "js/breakpoints.min.js"}}"></script>
+    <script src="{{asset "js/util.js"}}"></script>
+    <script src="{{asset "js/main.js"}}"></script>
+
+    <script id="dsq-count-scr" src="//lss233-blog.disqus.com/count.js" async></script>
+    {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
+    {{{block "scripts"}}}
+
+    {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+    {{ghost_foot}}
+
+</body>
+</html>

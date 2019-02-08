@@ -1,0 +1,58 @@
+{
+    "name": "future-imperfect",
+    "description": "A free, open source theme for Ghost.",
+    "demo": "https://blog.lss233.com",
+    "version": "2.0.0",
+    "engines": {
+        "ghost": ">=1.2.0"
+    },
+    "license": "MIT",
+    "screenshots": {
+        "desktop": "assets/screenshot-desktop.jpg",
+        "mobile": "assets/screenshot-mobile.jpg"
+    },
+    "scripts": {
+      "dev": "gulp",
+      "zip": "gulp zip"
+    },
+    "author": {
+        "name": "Lss233",
+        "email": "i@lss233.com",
+        "url": "https://lss233.com"
+    },
+    "gpm": {
+        "type": "theme",
+        "categories": [
+            "Minimal",
+            "Magazine"
+        ]
+    },
+    "keywords": [
+        "ghost",
+        "theme",
+        "html5up"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lss233/Ghost-Future-Imperfect"
+    },
+    "bugs": "https://github.com/lss233/Ghost-Future-Imperfect/issues",
+    "contributors": "https://github.com/lss233/Ghost-Future-Imperfect/graphs/contributors",
+    "devDependencies": {
+        "autoprefixer": "6.3.6",
+        "cssnano": "3.7.1",
+        "gulp": "3.9.1",
+        "gulp-livereload": "3.8.1",
+        "gulp-postcss": "6.1.1",
+        "gulp-sourcemaps": "1.6.0",
+        "gulp-util": "3.0.7",
+        "gulp-watch": "4.3.8",
+        "gulp-zip": "4.0.0",
+        "postcss-color-function": "2.0.1",
+        "postcss-custom-properties": "5.0.1",
+        "postcss-easy-import": "1.0.1"
+    },
+    "config": {
+        "posts_per_page": 15
+    }
+}
