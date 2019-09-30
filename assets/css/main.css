@@ -2852,14 +2852,18 @@ body.single #wrapper {
   -ms-flex-grow: 1;
   flex-grow: 1;
   -ms-flex: 1;
-  width: 100%;
 }
-
+@media screen and (max-width: 1280px){	
+  width: 60%;
+}
 /* Sidebar */
 #sidebar {
   margin-right: 3em;
   min-width: 22em;
   width: 22em;
+}
+@media screen and (max-width: 1280px){
+  float: left;
 }
 #sidebar > * {
   border-top: solid 1px rgba(160, 160, 160, 0.3);
