@@ -2061,12 +2061,16 @@ ul.posts {
 ul.posts li {
   border-top: dotted 1px rgba(160, 160, 160, 0.3);
   margin: 1.5em 0 0 0;
-  padding: 1.5em 0 0 0;
+  padding: 1.5em 1em 0.5em 1em;
 }
 ul.posts li:first-child {
   border-top: 0;
   margin-top: 0;
   padding-top: 0;
+}
+ul.posts li.post article header a {
+  heigh: 65px;
+  overflow hidden;
 }
 ul.posts article {
   display: -moz-flex;
