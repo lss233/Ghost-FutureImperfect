@@ -2876,10 +2876,6 @@ body.single #wrapper {
   margin-top: 0;
   padding-top: 0;
 }
-#sidebar > .post article header a {
-  heigh: 65px;
-  overflow: hidden;
-}
 @media screen and (max-width: 1280px) {
   #sidebar {
     border-top: solid 1px rgba(160, 160, 160, 0.3);
@@ -3071,6 +3067,10 @@ ul#feeds .post article {
 }
 ul#feeds .post article header {
   width: 0;
+  overflow: hidden;
+}
+ul#feeds .post article a {
+  height: 65px;
   overflow: hidden;
 }
 ul#feeds .post article a p {
