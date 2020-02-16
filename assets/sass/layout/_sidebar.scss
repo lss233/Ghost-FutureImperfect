@@ -23,11 +23,6 @@
 			padding-top: 0;
 		}
 
-		> .post article header a {
-			heigh: 65px;
-			overflow:hidden
-		}
-
 		@include breakpoint('<=large') {
 			border-top: solid 1px _palette(border);
 			margin: _size(section-spacing) 0 0 0;
