@@ -14,7 +14,7 @@ jobs:
     - name: Sass Build
       uses: gha-utilities/sass-build@v0.1.7
       with:
-        source: assets/sass/
+        source: assets/sass/main.css
         destination: assets/css/main.css
     - name: Clean up
       run: rm -rf assets/scss
