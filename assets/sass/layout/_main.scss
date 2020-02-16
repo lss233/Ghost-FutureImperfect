@@ -10,4 +10,8 @@
 		@include vendor('flex-grow', '1');
 		-ms-flex: 1;
 		width: 100%;
+	
+		@media (min-width:1025px) {
+			width: 70%;
+		}
 	}
