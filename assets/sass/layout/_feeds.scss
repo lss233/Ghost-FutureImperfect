@@ -1,21 +1,30 @@
 ul#feeds {
     .post {
+        background-color: #fff;
+        border: 1px solid #e6e6e6;
+        border-radius: 2px;
+        padding: 1.5em 0;
+
         article {
-            margin: 10px 10px 20px 10px;
+            margin: 0 20px;
             header {
                 width: 0;
                 overflow: hidden;
-            }
-            a {
-                p {
-                    text-transform: capitalize;
-                    padding-top: 5px;
+                .published, a > p {
+                        font-family: 'Varela Round',sans-serif;
+                        font-size: 0.75em;
+                        letter-spacing: 2px;
+                        line-height: 2;
+                        text-transform: none;
+                        margin: 0;
+                    
                 }
             }
+            
             .image {
                 img {
-                    width: 64px;
-                    height: 64px;
+                    width: 60px;
+                    height: 60px;
                     border-radius: 100%;
                 }
             }

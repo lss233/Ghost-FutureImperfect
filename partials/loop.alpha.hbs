@@ -13,10 +13,10 @@
         <p>{{excerpt words="24"}}<a class="read-more" href="{{url}}">...</a></p>
     </section>
     <footer class="post-meta">
-        {{#author}}
+        {{#primary_author}}
             {{#if profile_image}}<img class="author-thumb" src="{{profile_image}}" alt="{{name}}" nopin="nopin" />{{/if}}
-        {{/author}}
-        {{author}}
+        {{/primary_author}}
+        {{primary_author}}
         {{tags prefix=" 于 <i class=\"fa fa-tags\" aria-hidden=\"true\"></i>"}}
         <div class="meta-element">
             <time class="post-date" datetime="{{date format="YYYY-MM-DD"}}">

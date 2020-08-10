@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import 'font-awesome.min.css';
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,800,900");
+@import url("https://google-fonts.mirrors.sjtug.sjtu.edu.cn/css?family=Source+Sans+Pro:400,700|Raleway:400,800,900|Varela+Round");
 /*
 	Future Imperfect by HTML5 UP
 	html5up.net | @ajlkn
@@ -2097,6 +2097,11 @@ ul.posts article header {
   -ms-flex-grow: 1;
   flex-grow: 1;
   -ms-flex: 1;
+  /*
+  > :last-child {
+  	margin-bottom: 0;
+  }
+  */
 }
 ul.posts article header h3 {
   font-size: 0.7em;
@@ -2110,9 +2115,6 @@ ul.posts article header .published {
   letter-spacing: 0.25em;
   margin: -0.625em 0 1.7em 0;
   text-transform: uppercase;
-}
-ul.posts article header > :last-child {
-  margin-bottom: 0;
 }
 
 /* Mini Post */
@@ -3057,20 +3059,30 @@ body.is-menu-visible #menu {
   }
 }
 
+ul#feeds .post {
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 2px;
+  padding: 1.5em 0;
+}
 ul#feeds .post article {
-  margin: 10px 10px 20px 10px;
+  margin: 0 20px;
 }
 ul#feeds .post article header {
   width: 0;
   overflow: hidden;
 }
-ul#feeds .post article a p {
-  text-transform: capitalize;
-  padding-top: 5px;
+ul#feeds .post article header .published, ul#feeds .post article header a > p {
+  font-family: "Varela Round", sans-serif;
+  font-size: 0.75em;
+  letter-spacing: 2px;
+  line-height: 2;
+  text-transform: none;
+  margin: 0;
 }
 ul#feeds .post article .image img {
-  width: 64px;
-  height: 64px;
+  width: 60px;
+  height: 60px;
   border-radius: 100%;
 }
 ul#feeds .ph-item article {

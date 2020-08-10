@@ -661,6 +661,9 @@ The first (most recent) post in the list is styled to be bigger than the others 
 .page-template .site-main {
     padding-bottom: 4vw;
     background: #fff;
+    background-attachment: scroll;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .post-full {
