@@ -1,0 +1,20 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run a one-line script
+      run: echo Hello, world!
+    - name: Sass Build
+      uses: gha-utilities/sass-build@v0.1.7
+      with:
+        source: assets/sass/main.scss
+        destination: assets/css/main.css
+    - name: Clean up
+      run: rm -rf assets/scss
