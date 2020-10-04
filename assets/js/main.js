@@ -88,8 +88,12 @@
 				$intro.prependTo($main);
 			});
 
-			breakpoints.on('>large', function() {
-				$intro.prependTo($sidebar);
+		breakpoints.on('>large', function() {
+			$intro.prependTo($sidebar);
+		});
+		document.addEventListener('DOMContentLoaded', (event) => {
+			document.querySelectorAll('pre code').forEach((block) => {
+				hljs.highlightBlock(block);
 			});
-
+		});
 })(jQuery);

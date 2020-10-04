@@ -79,6 +79,12 @@
 				}
 			}
 		}
+		> .post-full-content {
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+		}
 
 		> footer {
 			@include vendor('display', 'flex');

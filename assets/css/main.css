@@ -235,6 +235,7 @@ code {
   border: solid 1px rgba(160, 160, 160, 0.3);
   font-family: "Courier New", monospace;
   font-size: 0.9em;
+  font-weight: 600;
   margin: 0 0.25em;
   padding: 0.25em 0.65em;
 }
@@ -2282,6 +2283,10 @@ ul.posts article header .published {
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);
   transform: scale(1.05);
+}
+.post > .post-full-content img {
+  max-width: 100%;
+  height: auto;
 }
 .post > footer {
   display: -moz-flex;
