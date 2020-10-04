@@ -7,7 +7,7 @@
         <div class="meta">
             {{#foreach authors}}
                     {{#if profile_image}}
-                        <a href="{{url}}" class="author static-avatar"><img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" /></a>
+                        <a href="{{url}}" class="author static-avatar"><img loading="lazy" class="author-profile-image" src="{{profile_image}}" alt="{{name}}" /></a>
                     {{else}}
                         <a href="{{url}}" class="author static-avatar author-profile-image">{{> "icons/avatar"}}</a>
                     {{/if}}
@@ -18,7 +18,7 @@
         </div>
     </header>
     {{#if feature_image}}
-        <a href="{{ url}}" class="image featured"><img src="{{feature_image}}" alt="{{title}}" /></a>
+        <a href="{{ url}}" class="image featured"><img loading="lazy" src="{{feature_image}}" alt="{{title}}" /></a>
     {{/if}}
     <p>
         {{ excerpt words="34" }}

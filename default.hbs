@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{@site.lang}}">
+
 <head>
 
     {{!-- Document Settings --}}
@@ -12,15 +13,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {{!-- Styles'n'Scripts --}}
-    <link rel="stylesheet" type="text/css" href="{{asset "css/main.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/main.css"}}" media="print"
+        onload="this.media='all';this.onload=null;" />
 
     {{!-- This tag outputs SEO meta+structured data and other important settings --}}
     {{ghost_head}}
 
-</head>
-<body class="{{body_class}} is-preload" {{#if @site.cover_image}}" style="background-image: url({{@site.cover_image}})"{{/if}}>
+    <style>
+        .lazyload {
+            display: none;
+        }
+        #loading svg {
+            width: 100%;
+            height: 200px;
+        }
 
-    <div id="wrapper">
+        #menu {
+            visibility: hidden;
+        }
+
+        #footer {
+            text-align: center;
+        }
+
+        #footer .copyright {
+            color: #aaaaaa;
+            font-size: 0.5em;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+
+        ul.icons li>* .label {
+            display: none;
+        }
+
+        ul.icons {
+            list-style: none;
+        }
+    </style>
+
+</head>
+
+<body class="{{body_class}} is-preload" {{#if @site.cover_image}}" style="background-image: url({{@site.cover_image}})"
+    {{/if}}>
+    <div id="loading">
+        <svg version="1.1" id="L4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+            y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+            <circle fill="#333" stroke="none" cx="6" cy="50" r="6">
+                <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.1" />
+            </circle>
+            <circle fill="#333" stroke="none" cx="26" cy="50" r="6">
+                <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.2" />
+            </circle>
+            <circle fill="#333" stroke="none" cx="46" cy="50" r="6">
+                <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.3" />
+            </circle>
+        </svg>
+
+    </div>
+    <div id="wrapper" class="lazyload">
 
         {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
         {{{body}}}
@@ -34,7 +86,8 @@
             <a class="subscribe-overlay-close" href="#"></a>
             <div class="subscribe-overlay-content">
                 <h1 class="subscribe-overlay-title">Subscribe to {{@site.title}}</h1>
-                <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
+                <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts
+                    delivered straight to your inbox</p>
                 {{subscribe_form placeholder="youremail@example.com"}}
             </div>
         </div>
@@ -48,11 +101,14 @@
             {{#if @site.facebook}}
             <li><a href="{{@site.facebook}}" class="fa-facebook"><span class="label">Facebook</span></a></li>
             {{/if}}
-            <li><a href="https://instagram.com/lss233_" class="fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="https://instagram.com/lss233_" class="fa-instagram"><span class="label">Instagram</span></a>
+            </li>
             <li><a href="https://github.com/lss233" class="fa-github"><span class="label">Github</span></a></li>
             <li><a href="{{@site.url}}/rss/" class="fa-rss"><span class="label">RSS</span></a></li>
         </ul>
-        <p class="copyright">&copy; {{@site.title}}. Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a> & <a href="https://lss233.com" target="_blank">Lss233</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
+        <p class="copyright">&copy; {{@site.title}}. Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a>
+            & <a href="https://lss233.com" target="_blank">Lss233</a>. Images: <a
+                href="https://unsplash.com">Unsplash</a>.</p>
     </section>
     {{#if pagination.pages}}
     <script>
@@ -62,12 +118,12 @@
         var maxPages = parseInt('{{pagination.pages}}');
     </script>
     {{/if}}
-    <script src="{{asset "js/jquery.min.js"}}"></script>
-    <script src="{{asset "js/jquery.fitvids.js"}}"></script>
-    <script src="{{asset "js/browser.min.js"}}"></script>
-    <script src="{{asset "js/breakpoints.min.js"}}"></script>
-    <script src="{{asset "js/util.js"}}"></script>
-    <script src="{{asset "js/main.js"}}"></script>
+    <script src="{{asset "js/jquery.min.js"}}" defer></script>
+    <script src="{{asset "js/jquery.fitvids.js"}}" async></script>
+    <script src="{{asset "js/browser.min.js"}}" async></script>
+    <script src="{{asset "js/breakpoints.min.js"}}" async></script>
+    <script src="{{asset "js/util.js"}}" async></script>
+    <script src="{{asset "js/main.js"}}" async></script>
 
     <script id="dsq-count-scr" src="//lss233-blog.disqus.com/count.js" async></script>
     {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
@@ -77,4 +133,5 @@
     {{ghost_foot}}
 
 </body>
+
 </html>

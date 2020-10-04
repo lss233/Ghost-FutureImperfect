@@ -2862,6 +2862,11 @@ body.single #wrapper {
   }
 }
 
+#main.many > article.post > a.image.featured img {
+  max-height: 200px;
+  object-fit: cover;
+}
+
 /* Sidebar */
 #sidebar {
   margin-right: 3em;
@@ -2871,7 +2876,7 @@ body.single #wrapper {
 #sidebar > * {
   border-top: solid 1px rgba(160, 160, 160, 0.3);
   margin: 3em 0 0 0;
-  padding: 3em 1em 0.5em 1em;
+  padding: 3em 0 0 0;
 }
 #sidebar > :first-child {
   border-top: 0;
@@ -3157,6 +3162,10 @@ ul#feeds .ph-item article {
 body {
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+#loading {
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */
