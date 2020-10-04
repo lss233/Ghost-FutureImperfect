@@ -2212,8 +2212,9 @@ ul.posts article header .published {
 /* Post */
 .post {
   padding: 3em 3em 1em 3em;
-  background: #ffffff;
-  border: solid 1px rgba(160, 160, 160, 0.3);
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  border: solid 2px rgba(160, 160, 160, 0.3);
   margin: 0 0 3em 0;
   position: relative;
 }
@@ -2648,7 +2649,8 @@ body {
   -webkit-justify-content: space-between;
   -ms-justify-content: space-between;
   justify-content: space-between;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(35px);
   border-bottom: solid 1px rgba(160, 160, 160, 0.3);
   height: 3.5em;
   left: 0;
@@ -2994,8 +2996,9 @@ body.single #footer {
   -webkit-transition: -webkit-transform 0.5s ease, visibility 0.5s;
   -ms-transition: -ms-transform 0.5s ease, visibility 0.5s;
   transition: transform 0.5s ease, visibility 0.5s;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(50px);
   -webkit-overflow-scrolling: touch;
-  background: #ffffff;
   border-left: solid 1px rgba(160, 160, 160, 0.3);
   box-shadow: none;
   height: 100%;
@@ -3070,8 +3073,9 @@ body.is-menu-visible #menu {
 }
 
 ul#feeds .post {
-  background-color: #fff;
-  border: 1px solid #e6e6e6;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  border: solid 2px rgba(160, 160, 160, 0.3);
   border-radius: 2px;
   padding: 1.5em 0;
 }

@@ -8,8 +8,9 @@
 
 	.post {
 		@include padding(_size(section-spacing), _size(section-spacing));
-		background: _palette(bg);
-		border: solid 1px _palette(border);
+		@include glassy(_palette(bg));
+		// background: rgba(_palette(bg), .5);
+		border: solid 2px _palette(border);
 		margin: 0 0 _size(section-spacing) 0;
 		position: relative;
 

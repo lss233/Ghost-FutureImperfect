@@ -61,3 +61,9 @@
 	@return url("data:image/svg+xml;charset=utf8,#{$svg}");
 
 }
+
+@mixin glassy($color, $blur: 20px) {
+	background-color: rgba($color, .5);
+	backdrop-filter: blur($blur);
+	// box-shadow: 0px 0px 0px 1px rgba(255,255,255,.4);
+}

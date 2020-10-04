@@ -12,8 +12,9 @@
 			'transform #{_duration(menu)} ease',
 			'visibility #{_duration(menu)}'
 		));
+		@include glassy(_palette(bg), 50px);
 		-webkit-overflow-scrolling: touch;
-		background: _palette(bg);
+		// background: _palette(bg);
 		border-left: solid 1px _palette(border);
 		box-shadow: none;
 		height: 100%;

@@ -1,7 +1,7 @@
 ul#feeds {
     .post {
-        background-color: #fff;
-        border: 1px solid #e6e6e6;
+        @include glassy(_palette(bg));
+		border: solid 2px _palette(border);
         border-radius: 2px;
         padding: 1.5em 0;
 
