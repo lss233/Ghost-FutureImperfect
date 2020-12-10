@@ -18,7 +18,7 @@
         </div>
     </header>
     {{#if feature_image}}
-        <a href="{{ url}}" class="image featured"><img loading="lazy" src="{{feature_image}}" alt="{{title}}" /></a>
+        <a href="{{ url}}" class="image featured"><img loading="lazy" data-src="{{feature_image}}" alt="{{title}}" class="lazyload" /></a>
     {{/if}}
     <p>
         {{ excerpt words="34" }}

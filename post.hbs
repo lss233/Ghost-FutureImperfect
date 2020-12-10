@@ -67,6 +67,7 @@ into the {body} of the default.hbs template --}}
                     s.src = 'https://lss233-blog.disqus.com/embed.js';
                     
                     s.setAttribute('data-timestamp', +new Date());
+                    s.setAttribute('defer', true);
                     (d.head || d.body).appendChild(s);
                 })();
             </script>
