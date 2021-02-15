@@ -84,6 +84,24 @@
 				max-width: 100%;
 				height: auto;
 			}
+			figure {
+				margin: .8em 0 2.3em;
+			}
+			pre {
+				margin: 1.5em 0 3em;
+				padding: 20px;
+				max-width: 100%;
+				overflow-x: auto;
+				background: _palette(code-bg);
+				border: solid 1px _palette(border);
+
+				code {
+					padding: 0 5px 2px;	
+					border: none;
+					color: _palette(bg);
+				}
+			}
+			
 		}
 
 		> footer {

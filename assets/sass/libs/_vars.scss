@@ -35,14 +35,15 @@
 	$palette: (
 		bg:							#ffffff,
 		bg-alt:						#f4f4f4,
-		fg:							#646464,
-		fg-bold:					#3c3b3b,
+		fg:							#424242,
+		fg-bold:					#383838,
 		fg-light:					#aaaaaa,
 		border:						rgba(160,160,160,0.3),
 		border-bg:					rgba(160,160,160,0.075),
 		border-alt:					rgba(160,160,160,0.65),
-		accent:						#78909c
-	);
+		accent:						#78909c,
+		code-bg:					#282c34,
+		);
 
 // Placeholder
 $ph-bg:                   #fff !default;

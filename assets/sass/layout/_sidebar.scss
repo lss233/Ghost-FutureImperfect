@@ -22,7 +22,9 @@
 		margin-top: 0;
 		padding-top: 0;
 	}
-
+	@include breakpoint('<=medium') {
+		display: none;
+	}
 	@include breakpoint('<=large') {
 		border-top: solid 1px _palette(border);
 		margin: _size(section-spacing) 0 0 0;
